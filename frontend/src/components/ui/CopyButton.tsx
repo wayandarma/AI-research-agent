@@ -21,15 +21,15 @@ export function CopyButton({ textToCopy }: CopyButtonProps) {
 
     return (
         <Button
-            variant="outline"
+            variant="secondary"
             size="sm"
-            className="text-neutral-500 hover:text-neutral-900 border-neutral-200"
+            className="h-11 rounded-xl border border-emerald-200 bg-white/85 px-4 text-emerald-700 shadow-sm hover:bg-emerald-50 hover:text-emerald-800"
             onClick={handleCopy}
         >
             {copied ? (
-                <Check className="w-4 h-4 mr-2 text-green-600" />
+                <Check className="mr-2 size-4 text-emerald-600" />
             ) : (
-                <Copy className="w-4 h-4 mr-2" />
+                <Copy className="mr-2 size-4" />
             )}
             {copied ? "Copied!" : "Copy Report"}
         </Button>

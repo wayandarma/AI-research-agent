@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ReportSection } from "./ReportSection";
-import { ExternalLink, FileText } from "lucide-react";
+import { BookOpen, ExternalLink, FileText, ListChecks, Sparkles, TrendingUp } from "lucide-react";
 import type { FinalReport as FinalReportType } from "@/hooks/useResearch";
 import { CopyButton } from "../ui/CopyButton";
 
@@ -21,22 +21,33 @@ export function FinalReport({ report }: FinalReportProps) {
     };
 
     return (
-        <Card className="shadow-sm border-neutral-200 lg:col-span-3">
-            <CardHeader className="pb-6 border-b border-neutral-100 bg-neutral-50/50 flex flex-row items-center justify-between">
-                <CardTitle className="text-2xl font-bold flex items-center gap-2 text-neutral-900">
-                    <FileText className="w-6 h-6 text-blue-600" />
-                    Research Report
-                </CardTitle>
+        <Card className="border-emerald-200/70 bg-[linear-gradient(180deg,rgba(236,253,245,0.8),rgba(255,255,255,0.92))] shadow-[0_22px_70px_-38px_rgba(5,150,105,0.45)]">
+            <CardHeader className="flex flex-col gap-4 border-b border-emerald-100/80 pb-6 md:flex-row md:items-end md:justify-between">
+                <div className="space-y-3">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-emerald-600">
+                        Synthesized Final Report
+                    </p>
+                    <CardTitle className="flex items-center gap-3 text-3xl font-semibold tracking-tight text-slate-950">
+                        <span className="flex size-11 items-center justify-center rounded-2xl bg-emerald-500 text-white shadow-sm">
+                            <FileText className="size-5" />
+                        </span>
+                        Research Report
+                    </CardTitle>
+                    <p className="max-w-2xl text-sm leading-6 text-slate-600">
+                        A structured summary of the agent's findings, key takeaways, supporting
+                        resources, and recommended next steps.
+                    </p>
+                </div>
                 <CopyButton textToCopy={getCopyText()} />
             </CardHeader>
 
-            <CardContent className="pt-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
-                    <ReportSection title="Overview">
+            <CardContent className="pt-8">
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4">
+                    <ReportSection title="Overview" icon={Sparkles}>
                         <p>{report.overview}</p>
                     </ReportSection>
 
-                    <ReportSection title="Key Points">
+                    <ReportSection title="Key Points" icon={ListChecks}>
                         <ul className="list-disc pl-5 space-y-1.5 marker:text-neutral-400">
                             {report.key_points.map((point, index) => (
                                 <li key={index}>{point}</li>
@@ -44,7 +55,7 @@ export function FinalReport({ report }: FinalReportProps) {
                         </ul>
                     </ReportSection>
 
-                    <ReportSection title="Resources">
+                    <ReportSection title="Resources" icon={BookOpen}>
                         <ul className="space-y-2.5">
                             {report.resources.map((resource, index) => (
                                 <li key={index}>
@@ -52,13 +63,16 @@ export function FinalReport({ report }: FinalReportProps) {
                                         href={resource.url}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="group flex items-start gap-2 text-sm hover:bg-neutral-50 p-2 rounded-md -mx-2 transition-colors"
+                                        className="group flex items-start gap-2 rounded-xl border border-transparent p-2 text-sm transition-colors hover:border-emerald-100 hover:bg-white/70"
                                     >
-                                        <ExternalLink className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
-                                        <div>
-                                            <span className="font-medium text-neutral-900 group-hover:text-blue-600 transition-colors">
+                                        <ExternalLink className="mt-0.5 size-4 flex-shrink-0 text-emerald-600" />
+                                        <div className="min-w-0 flex-1">
+                                            <span className="block font-medium text-slate-900 transition-colors group-hover:text-emerald-700 break-words">
                                                 {resource.title}
                                             </span>
+                                            <p className="mt-1 truncate text-xs text-slate-500">
+                                                {resource.url}
+                                            </p>
                                         </div>
                                     </a>
                                 </li>
@@ -66,7 +80,7 @@ export function FinalReport({ report }: FinalReportProps) {
                         </ul>
                     </ReportSection>
 
-                    <ReportSection title="Next Steps">
+                    <ReportSection title="Next Steps" icon={TrendingUp}>
                         <ul className="list-disc pl-5 space-y-1.5 marker:text-neutral-400">
                             {report.next_steps.map((step, index) => (
                                 <li key={index}>{step}</li>

@@ -10,17 +10,23 @@ export function SourceList({ sources }: SourceListProps) {
     if (!sources || sources.length === 0) return null;
 
     return (
-        <Card className="shadow-sm border-neutral-200">
-            <CardHeader className="pb-4">
-                <CardTitle className="text-lg font-semibold flex items-center gap-2">
-                    Selected Sources
-                    <span className="text-xs font-normal text-neutral-500 bg-neutral-100 px-2 py-0.5 rounded-full">
-                        {sources.length}
-                    </span>
-                </CardTitle>
+        <Card className="h-full border-slate-200/80 bg-white/90 shadow-[0_18px_50px_-32px_rgba(15,23,42,0.3)]">
+            <CardHeader className="pb-5">
+                <div className="space-y-3">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-400">
+                        Sources Used
+                    </p>
+                    <CardTitle className="text-2xl font-semibold tracking-tight text-slate-950">
+                        Identified sources
+                    </CardTitle>
+                    <p className="text-sm leading-6 text-slate-500">
+                        {sources.length} curated {sources.length === 1 ? "source" : "sources"} surfaced
+                        by the agent.
+                    </p>
+                </div>
             </CardHeader>
             <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="space-y-4">
                     {sources.map((source, index) => (
                         <SourceCard key={index} source={source} />
                     ))}

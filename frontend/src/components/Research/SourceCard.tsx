@@ -7,25 +7,25 @@ interface SourceCardProps {
 
 export function SourceCard({ source }: SourceCardProps) {
     return (
-        <div className="p-4 rounded-lg border border-neutral-100 bg-neutral-50 hover:bg-neutral-100/50 transition-colors">
+        <div className="rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md">
             <a
                 href={source.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group block space-y-2"
+                className="group block space-y-3"
             >
                 <div className="flex items-start justify-between gap-2">
-                    <h4 className="font-medium text-blue-600 group-hover:underline line-clamp-2 leading-snug">
+                    <h4 className="text-base font-semibold tracking-tight text-slate-950 group-hover:text-sky-700">
                         {source.title}
                     </h4>
-                    <ExternalLink className="w-4 h-4 text-neutral-400 flex-shrink-0 mt-1 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <ExternalLink className="mt-1 size-4 flex-shrink-0 text-slate-400 transition-colors group-hover:text-sky-700" />
                 </div>
 
-                <p className="text-xs text-green-700 truncate font-mono">
-                    {(() => { try { return new URL(source.url).hostname; } catch { return source.url; } })()}
+                <p className="truncate text-xs font-semibold tracking-wide text-sky-700">
+                    {source.url}
                 </p>
 
-                <p className="text-sm text-neutral-600 line-clamp-3 leading-relaxed">
+                <p className="line-clamp-3 text-sm leading-6 text-slate-600">
                     {source.snippet}
                 </p>
             </a>

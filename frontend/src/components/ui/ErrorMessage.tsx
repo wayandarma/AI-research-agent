@@ -42,7 +42,7 @@ export function ErrorMessage({ message }: ErrorMessageProps) {
     return (
         <Alert
             variant="destructive"
-            className="bg-red-50 text-red-900 border-red-200 mb-6"
+            className="mb-6 border-rose-200 bg-rose-50/90 text-rose-950 shadow-sm"
             role="alert"
         >
             <AlertCircle className="h-4 w-4" />
