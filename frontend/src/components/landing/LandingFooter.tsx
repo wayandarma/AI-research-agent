@@ -5,8 +5,8 @@ import { landingNavItems } from "./landing-content";
 
 export function LandingFooter() {
   return (
-    <footer className="px-4 pb-10 pt-8 sm:px-6 lg:px-8">
-      <div className="mx-auto flex max-w-7xl flex-col gap-6 rounded-[30px] border border-white/70 bg-white/82 px-6 py-6 shadow-[0_18px_60px_-38px_rgba(15,23,42,0.32)] backdrop-blur-sm md:flex-row md:items-end md:justify-between">
+    <footer className="px-4 pb-6 pt-6 sm:pb-10 sm:pt-8 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-7xl flex-col gap-4 sm:gap-6 rounded-[30px] border border-white/70 bg-white/82 px-5 py-5 sm:px-6 sm:py-6 shadow-[0_18px_60px_-38px_rgba(15,23,42,0.32)] backdrop-blur-sm md:flex-row md:items-end md:justify-between">
         <div className="space-y-3">
           <div className="flex items-center gap-3">
             <span className="flex size-10 items-center justify-center rounded-2xl bg-slate-950 text-white shadow-sm">
@@ -21,12 +21,12 @@ export function LandingFooter() {
               </p>
             </div>
           </div>
-          <p className="text-sm leading-6 text-slate-500">
+          <p className="hidden sm:block text-sm leading-6 text-slate-500">
             Generate query angles, surface sources, summarize findings, and assemble a cleaner report without turning the work into an endless chat thread.
           </p>
         </div>
 
-        <div className="flex flex-col gap-3 text-sm font-medium text-slate-600 sm:flex-row sm:flex-wrap sm:items-center sm:justify-end">
+        <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm font-medium text-slate-600 sm:flex-row sm:flex-wrap sm:items-center sm:justify-end">
           {landingNavItems.map((item) => (
             <a
               key={item.href}
