@@ -10,8 +10,13 @@ import { Button } from "../components/ui/button";
 import { Separator } from "../components/ui/separator";
 import { useResearch } from "../hooks/useResearch";
 import { Bell, Bot, RotateCcw, Settings2, Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
 
-const NAV_ITEMS = ["Dashboard", "History", "Resources"];
+const HEADER_LINKS = [
+    { label: "Home", href: "/" },
+    { label: "Workflow", href: "/#workflow" },
+    { label: "Use cases", href: "/#use-cases" },
+];
 const SUGGESTED_TOPICS = [
     "Quantum Computing",
     "Sustainable Aviation",
@@ -47,24 +52,30 @@ export default function ResearchPage() {
             <header className="sticky top-0 z-30 border-b border-slate-200/70 bg-white/80 backdrop-blur-xl">
                 <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-4 py-4 sm:px-6 lg:px-8">
                     <div className="flex items-center gap-4">
-                        <div className="flex size-10 items-center justify-center rounded-2xl bg-slate-950 text-white shadow-sm">
-                            <Bot className="size-5" />
-                        </div>
-                        <div className="space-y-0.5">
-                            <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-slate-400">
-                                Research Workspace
-                            </p>
-                            <h1 className="text-lg font-semibold tracking-tight text-slate-950">
-                                AI Research Agent
-                            </h1>
-                        </div>
+                        <Link to="/" className="flex items-center gap-4">
+                            <div className="flex size-10 items-center justify-center rounded-2xl bg-slate-950 text-white shadow-sm">
+                                <Bot className="size-5" />
+                            </div>
+                            <div className="space-y-0.5">
+                                <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-slate-400">
+                                    Research Workspace
+                                </p>
+                                <h1 className="text-lg font-semibold tracking-tight text-slate-950">
+                                    AI Research Agent
+                                </h1>
+                            </div>
+                        </Link>
                     </div>
 
                     <nav aria-label="Primary" className="hidden items-center gap-6 md:flex">
-                        {NAV_ITEMS.map((item) => (
-                            <span key={item} className="text-sm font-medium text-slate-500">
-                                {item}
-                            </span>
+                        {HEADER_LINKS.map((item) => (
+                            <a
+                                key={item.label}
+                                href={item.href}
+                                className="text-sm font-medium text-slate-500 transition-colors hover:text-slate-950"
+                            >
+                                {item.label}
+                            </a>
                         ))}
                     </nav>
 
@@ -200,11 +211,17 @@ export default function ResearchPage() {
                 <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-8 text-sm text-slate-500 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
                     <p>© 2026 AI Research Agent. Built for focused research workflows.</p>
                     <div className="flex items-center gap-4 text-xs font-semibold uppercase tracking-[0.24em] text-slate-400">
-                        <span>Privacy</span>
+                        <Link to="/" className="transition-colors hover:text-slate-600">
+                            Home
+                        </Link>
                         <Separator orientation="vertical" className="h-4 bg-slate-200" />
-                        <span>Terms</span>
+                        <a href="/#workflow" className="transition-colors hover:text-slate-600">
+                            Workflow
+                        </a>
                         <Separator orientation="vertical" className="h-4 bg-slate-200" />
-                        <span>Contact</span>
+                        <a href="/#use-cases" className="transition-colors hover:text-slate-600">
+                            Use cases
+                        </a>
                     </div>
                 </div>
             </footer>

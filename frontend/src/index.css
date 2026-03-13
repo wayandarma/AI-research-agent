@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap");
 @import "tailwindcss";
 
 @theme inline {
@@ -27,9 +27,11 @@
 }
 
 :root {
+  --font-heading: "Poppins", sans-serif;
+  --font-body: "Open Sans", sans-serif;
   --background: #f8fafc;
   --foreground: #0f172a;
-  --card: rgba(255, 255, 255, 0.9);
+  --card: rgba(255, 255, 255, 0.92);
   --card-foreground: #0f172a;
   --popover: #ffffff;
   --popover-foreground: #0f172a;
@@ -62,10 +64,20 @@
     @apply bg-background text-foreground antialiased;
     margin: 0;
     min-height: 100svh;
-    font-family: "Inter", "Segoe UI", sans-serif;
+    font-family: var(--font-body);
     background-image:
-      radial-gradient(circle at top, rgba(191, 219, 254, 0.5), transparent 32%),
-      linear-gradient(180deg, #f8fbff 0%, #eef4ff 36%, #f8fafc 100%);
+      radial-gradient(circle at top left, rgba(191, 219, 254, 0.52), transparent 30%),
+      radial-gradient(circle at top right, rgba(219, 234, 254, 0.64), transparent 28%),
+      linear-gradient(180deg, #f8fbff 0%, #eef4ff 32%, #f8fafc 100%);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
   }
 
   a {
@@ -86,4 +98,10 @@
 
 #root {
   min-height: 100svh;
+}
+
+@layer utilities {
+  .font-heading {
+    font-family: var(--font-heading);
+  }
 }
