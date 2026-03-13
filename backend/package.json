@@ -1,0 +1,23 @@
+{
+  "name": "ai-research-agent-backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Backend MVP for AI research agent",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.6.2",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1"
+  }
+}
