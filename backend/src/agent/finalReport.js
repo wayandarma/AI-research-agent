@@ -46,9 +46,9 @@ async function finalReport({ topic, summaries, sources }) {
   const resources = requestedResources.length
     ? requestedResources.map((resource) => sourceMap.get(resource.url) || resource)
     : (sources || []).map((source) => ({
-        title: source.title,
-        url: source.url,
-      }));
+      title: source.title,
+      url: source.url,
+    }));
 
   if (!overview) {
     throw new Error("OpenRouter did not return final report overview");
